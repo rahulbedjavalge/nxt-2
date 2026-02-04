@@ -199,7 +199,11 @@ select {
 .upload-card,
 .extraction-panel,
 .risk-panel,
-.vault-upload {
+.vault-upload,
+.profile-card,
+.insights-card,
+.calendar-card,
+.audit-trail {
   background: var(--card);
   border-radius: 20px;
   padding: 24px;
@@ -217,6 +221,49 @@ select {
 
 .bundle:last-child {
   border-bottom: none;
+}
+
+.coverage {
+  margin-top: 16px;
+  display: grid;
+  gap: 12px;
+}
+
+.coverage-bar {
+  background: #eef1ff;
+  border-radius: 999px;
+  height: 10px;
+  overflow: hidden;
+}
+
+.coverage-bar span {
+  display: block;
+  height: 100%;
+  background: var(--primary);
+}
+
+.coverage-meta {
+  display: flex;
+  justify-content: space-between;
+  font-size: 13px;
+  color: var(--muted);
+}
+
+.profile-card {
+  align-self: start;
+  display: grid;
+  gap: 16px;
+}
+
+.profile-grid {
+  display: grid;
+  gap: 12px;
+}
+
+.profile-grid div {
+  display: flex;
+  justify-content: space-between;
+  font-size: 14px;
 }
 
 .upload-card {
@@ -241,6 +288,26 @@ select {
 
 .upload-status li {
   margin: 12px 0;
+}
+
+.integration-panel {
+  display: grid;
+  gap: 12px;
+}
+
+.chip-row {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.chip {
+  background: rgba(43, 78, 255, 0.08);
+  color: var(--primary);
+  padding: 6px 14px;
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 600;
 }
 
 .extraction-item {
@@ -315,6 +382,13 @@ select {
   border-color: var(--primary);
 }
 
+.actions-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 3fr) minmax(260px, 1fr);
+  gap: 24px;
+  align-items: start;
+}
+
 .actions-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -335,6 +409,64 @@ select {
   justify-content: space-between;
   font-size: 13px;
   color: var(--muted);
+}
+
+.action-evidence {
+  display: flex;
+  justify-content: space-between;
+  font-size: 13px;
+  color: var(--muted);
+}
+
+.evidence-list {
+  display: grid;
+  gap: 6px;
+  font-size: 13px;
+  color: var(--muted);
+}
+
+.insights-card {
+  display: grid;
+  gap: 16px;
+  position: sticky;
+  top: 24px;
+}
+
+.insight-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 14px;
+}
+
+.progress {
+  display: grid;
+  gap: 8px;
+}
+
+.progress-label {
+  display: flex;
+  justify-content: space-between;
+  font-size: 13px;
+  color: var(--muted);
+}
+
+.progress-bar {
+  background: #eef1ff;
+  border-radius: 999px;
+  height: 10px;
+  overflow: hidden;
+}
+
+.progress-bar span {
+  display: block;
+  height: 100%;
+  background: var(--primary);
+  width: 0;
+}
+
+.risk-summary {
+  display: grid;
+  gap: 8px;
 }
 
 .timeline {
@@ -370,6 +502,20 @@ select {
   padding: 18px;
   border-radius: 16px;
   border: 1px solid var(--border);
+}
+
+.audit-trail ul {
+  padding-left: 20px;
+  margin: 0;
+  color: var(--muted);
+  display: grid;
+  gap: 12px;
+}
+
+.calendar-card {
+  margin-top: 20px;
+  display: grid;
+  gap: 12px;
 }
 
 .vault-upload {
@@ -422,6 +568,16 @@ select {
 .pill.info {
   background: rgba(21, 112, 239, 0.12);
   color: var(--info);
+}
+
+@media (max-width: 1024px) {
+  .actions-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .insights-card {
+    position: static;
+  }
 }
 
 @media (max-width: 768px) {
