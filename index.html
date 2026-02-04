@@ -106,7 +106,7 @@
           <form class="scope-form">
             <label>
               Country
-              <select>
+              <select id="countrySelect">
                 <option>Germany</option>
                 <option>France</option>
                 <option>Netherlands</option>
@@ -115,7 +115,7 @@
             </label>
             <label>
               Sector
-              <select>
+              <select id="sectorSelect">
                 <option>AI & Automation</option>
                 <option>Finance</option>
                 <option>Healthcare</option>
@@ -124,7 +124,7 @@
             </label>
             <label>
               Company Size
-              <select>
+              <select id="sizeSelect">
                 <option>Solo / Freelancer</option>
                 <option>1-10 employees</option>
                 <option>11-50 employees</option>
@@ -133,7 +133,7 @@
             </label>
             <label>
               Priority Focus
-              <select>
+              <select id="focusSelect">
                 <option>GDPR + AI Act</option>
                 <option>Labor + Tax</option>
                 <option>Sector-specific</option>
@@ -164,6 +164,44 @@
             </div>
             <button class="secondary">Add bundle</button>
           </div>
+          <div class="coverage">
+            <div>
+              <h4>Coverage Summary</h4>
+              <p>AI Act + GDPR + Labor regulations selected.</p>
+            </div>
+            <div class="coverage-bar">
+              <span style="width: 78%"></span>
+            </div>
+            <div class="coverage-meta">
+              <span>Coverage: 78%</span>
+              <span>Next refresh: 14 days</span>
+            </div>
+          </div>
+        </div>
+        <div class="profile-card">
+          <h3>Compliance Profile</h3>
+          <p class="section-subtitle">
+            Live summary of your scope and the regulations that apply.
+          </p>
+          <div class="profile-grid">
+            <div>
+              <span>Country</span>
+              <strong id="profileCountry">Germany</strong>
+            </div>
+            <div>
+              <span>Sector</span>
+              <strong id="profileSector">AI & Automation</strong>
+            </div>
+            <div>
+              <span>Company size</span>
+              <strong id="profileSize">Solo / Freelancer</strong>
+            </div>
+            <div>
+              <span>Priority focus</span>
+              <strong id="profileFocus">GDPR + AI Act</strong>
+            </div>
+          </div>
+          <button class="primary">Generate scope report</button>
         </div>
       </section>
 
@@ -227,6 +265,16 @@
                 <li><span class="pill warning">OCR</span> Contract Scan.jpg</li>
               </ul>
             </div>
+            <div class="integration-panel">
+              <h4>Cloud integrations</h4>
+              <div class="chip-row">
+                <span class="chip">Google Drive</span>
+                <span class="chip">SharePoint</span>
+                <span class="chip">Dropbox</span>
+                <span class="chip">Notion</span>
+              </div>
+              <p class="section-subtitle">Auto-sync folders with scheduled OCR and indexing.</p>
+            </div>
           </div>
         </div>
         <div class="extraction-panel">
@@ -254,6 +302,15 @@
             </div>
             <button class="secondary">Send to Action Board</button>
           </div>
+          <div class="extraction-item">
+            <h4>Action Draft</h4>
+            <p>"Complete staff training log for AI governance controls within 45 days."</p>
+            <div class="meta">
+              <span>Deadline: 45 days after deployment</span>
+              <span>Evidence: Training log + attendance</span>
+            </div>
+            <button class="secondary">Send to Action Board</button>
+          </div>
         </div>
       </section>
 
@@ -271,9 +328,46 @@
             <button class="filter" data-filter="overdue">Overdue</button>
             <button class="filter" data-filter="due-soon">Due Soon</button>
             <button class="filter" data-filter="in-progress">In Progress</button>
+            <button class="filter" data-filter="completed">Completed</button>
           </div>
         </div>
-        <div class="actions-grid" id="actionsGrid"></div>
+        <div class="actions-layout">
+          <div class="actions-grid" id="actionsGrid"></div>
+          <aside class="insights-card">
+            <h3>Action Board Insights</h3>
+            <div class="insight-row">
+              <span>Overdue</span>
+              <strong id="countOverdue">0</strong>
+            </div>
+            <div class="insight-row">
+              <span>Due soon</span>
+              <strong id="countDueSoon">0</strong>
+            </div>
+            <div class="insight-row">
+              <span>In progress</span>
+              <strong id="countInProgress">0</strong>
+            </div>
+            <div class="insight-row">
+              <span>Completed</span>
+              <strong id="countCompleted">0</strong>
+            </div>
+            <div class="progress">
+              <div class="progress-label">
+                <span>Completion rate</span>
+                <strong id="completionRate">0%</strong>
+              </div>
+              <div class="progress-bar">
+                <span id="completionBar"></span>
+              </div>
+            </div>
+            <div class="risk-summary">
+              <h4>Risk Score</h4>
+              <p class="risk-score" id="riskScore">0</p>
+              <p class="section-subtitle" id="riskSummary">Loading risk signals…</p>
+            </div>
+            <button class="primary">Export audit report</button>
+          </aside>
+        </div>
       </section>
 
       <section class="section alt" id="deadline">
@@ -294,6 +388,15 @@
             <div>
               <h3>Sep 02</h3>
               <p>AI model transparency notice publish</p>
+            </div>
+          </div>
+          <div class="calendar-card">
+            <h4>Calendar sync</h4>
+            <p class="section-subtitle">Push deadlines to Google Calendar, Outlook, or iCal.</p>
+            <div class="chip-row">
+              <span class="chip">Google</span>
+              <span class="chip">Outlook</span>
+              <span class="chip">iCal</span>
             </div>
           </div>
         </div>
@@ -354,6 +457,20 @@
               <p>Linked to DPA action #89</p>
               <span class="pill info">Awaiting upload</span>
             </div>
+          </div>
+          <div class="audit-trail">
+            <h3>Audit trail</h3>
+            <ul>
+              <li>
+                <strong>Aug 12</strong> — Evidence "GDPR Register" added by Ops Manager.
+              </li>
+              <li>
+                <strong>Aug 10</strong> — Action #118 reassigned to Compliance Lead.
+              </li>
+              <li>
+                <strong>Aug 08</strong> — OCR completed for Vendor DPIA Packet.
+              </li>
+            </ul>
           </div>
         </div>
         <div class="vault-upload">
