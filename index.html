@@ -255,16 +255,30 @@
           </p>
           <div class="progress-list" id="progressList"></div>
         </div>
-        <div class="env-card">
-          <h3>Environment Parameters</h3>
-          <p class="section-subtitle">
-            Configure local or hosted integrations in <code>config.js</code> (or mirror these in
-            <code>.env</code> for a future backend).
-          </p>
-          <ul class="env-list" id="envList"></ul>
-          <div class="env-actions">
-            <button class="primary">Copy env template</button>
-            <button class="ghost">View setup guide</button>
+        <div class="progress-side">
+          <div class="env-card">
+            <h3>Environment Parameters</h3>
+            <p class="section-subtitle">
+              Configure local or hosted integrations in <code>config.js</code> (or mirror these in
+              <code>.env</code> for a future backend).
+            </p>
+            <ul class="env-list" id="envList"></ul>
+            <div class="env-actions">
+              <button class="primary">Copy env template</button>
+              <button class="ghost">View setup guide</button>
+            </div>
+          </div>
+          <div class="next-steps-card">
+            <h3>Next phase kickoff (PRD)</h3>
+            <p class="section-subtitle">
+              Phase 4 focuses on compliance bundles and smart scope matching.
+            </p>
+            <ul class="next-steps-list" id="nextStepsList"></ul>
+            <div class="next-meta">
+              <span>Current phase: <strong id="nextPhase">Loading…</strong></span>
+              <span>Target window: <strong id="nextWindow">Weeks 9-10</strong></span>
+            </div>
+            <button class="secondary">Open bundle backlog</button>
           </div>
         </div>
       </section>

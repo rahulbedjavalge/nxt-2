@@ -204,7 +204,8 @@ select {
 .insights-card,
 .calendar-card,
 .audit-trail,
-.env-card {
+.env-card,
+.next-steps-card {
   background: var(--card);
   border-radius: 20px;
   padding: 24px;
@@ -537,6 +538,46 @@ select {
   display: flex;
   gap: 12px;
   flex-wrap: wrap;
+}
+
+.progress-side {
+  display: grid;
+  gap: 24px;
+  align-content: start;
+}
+
+.next-steps-list {
+  list-style: none;
+  padding: 0;
+  margin: 16px 0 0;
+  display: grid;
+  gap: 12px;
+}
+
+.next-steps-list li {
+  display: grid;
+  gap: 6px;
+  padding: 12px 14px;
+  border-radius: 12px;
+  background: #f8f9ff;
+}
+
+.next-steps-list span:nth-child(1) {
+  font-weight: 600;
+}
+
+.next-steps-list span:nth-child(2),
+.next-steps-list span:nth-child(3) {
+  font-size: 13px;
+  color: var(--muted);
+}
+
+.next-meta {
+  margin-top: 16px;
+  display: grid;
+  gap: 6px;
+  font-size: 13px;
+  color: var(--muted);
 }
 
 .risk-summary {
