@@ -113,15 +113,38 @@ const progressItems = [
   },
   {
     phase: 'Phase 4 — Compliance Bundles',
-    status: 'Planned',
-    percent: 40,
+    status: 'In progress',
+    percent: 45,
     highlights: ['Bundle library defined', 'Scope selector wired', 'Coverage summary drafted'],
   },
   {
     phase: 'Phase 5 — Polish + Reporting',
     status: 'Planned',
-    percent: 25,
+    percent: 30,
     highlights: ['Export surfaces mocked', 'Onboarding checklist drafted', 'Reminder cadence outlined'],
+  },
+];
+
+const nextSteps = [
+  {
+    title: 'Map country + sector bundles (EU AI Act, GDPR, labor)',
+    owner: 'Regulatory Ops',
+    status: 'In progress',
+  },
+  {
+    title: 'Auto-suggest bundles from scope selector inputs',
+    owner: 'Product',
+    status: 'Next',
+  },
+  {
+    title: 'Bundle refresh cadence + coverage health metrics',
+    owner: 'Compliance',
+    status: 'Next',
+  },
+  {
+    title: 'Prototype bundle export for onboarding report',
+    owner: 'Design',
+    status: 'Planned',
   },
 ];
 
@@ -248,6 +271,23 @@ function renderEnvList() {
   });
 }
 
+function renderNextSteps() {
+  const nextStepsList = document.getElementById('nextStepsList');
+  const nextPhase = document.getElementById('nextPhase');
+  if (!nextStepsList) return;
+
+  nextStepsList.innerHTML = '';
+  nextSteps.forEach((step) => {
+    const item = document.createElement('li');
+    item.innerHTML = `<span>${step.title}</span><span>${step.owner}</span><span>${step.status}</span>`;
+    nextStepsList.appendChild(item);
+  });
+
+  if (nextPhase) {
+    nextPhase.textContent = progressItems[3]?.phase ?? 'Phase 4 — Compliance Bundles';
+  }
+}
+
 filterButtons.forEach((button) => {
   button.addEventListener('click', () => {
     filterButtons.forEach((item) => item.classList.remove('active'));
@@ -265,3 +305,4 @@ updateInsights();
 updateProfile();
 renderProgress();
 renderEnvList();
+renderNextSteps();
