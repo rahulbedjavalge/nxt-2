@@ -203,7 +203,8 @@ select {
 .profile-card,
 .insights-card,
 .calendar-card,
-.audit-trail {
+.audit-trail,
+.env-card {
   background: var(--card);
   border-radius: 20px;
   padding: 24px;
@@ -462,6 +463,80 @@ select {
   height: 100%;
   background: var(--primary);
   width: 0;
+}
+
+.progress-list {
+  display: grid;
+  gap: 16px;
+  margin-top: 24px;
+}
+
+.progress-card {
+  background: var(--card);
+  border-radius: 18px;
+  padding: 18px;
+  border: 1px solid var(--border);
+  display: grid;
+  gap: 12px;
+}
+
+.progress-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+}
+
+.progress-meta {
+  font-size: 13px;
+  color: var(--muted);
+}
+
+.progress-highlights {
+  margin: 0;
+  padding-left: 20px;
+  color: var(--muted);
+  display: grid;
+  gap: 6px;
+}
+
+.env-list {
+  list-style: none;
+  padding: 0;
+  margin: 16px 0 0;
+  display: grid;
+  gap: 12px;
+}
+
+.env-list li {
+  background: #f8f9ff;
+  border-radius: 12px;
+  padding: 12px 14px;
+  display: grid;
+  gap: 6px;
+}
+
+.env-list strong {
+  font-size: 12px;
+  letter-spacing: 0.04em;
+  color: var(--muted);
+}
+
+.env-list span {
+  font-weight: 600;
+}
+
+.env-list p {
+  margin: 0;
+  font-size: 13px;
+  color: var(--muted);
+}
+
+.env-actions {
+  margin-top: 16px;
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
 }
 
 .risk-summary {

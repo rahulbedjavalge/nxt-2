@@ -81,6 +81,59 @@ const statusClasses = {
   completed: 'success',
 };
 
+const defaultConfig = {
+  apiBaseUrl: 'https://api.nxtaction.eu',
+  storageRegion: 'eu-central-1',
+  aiProvider: 'openai',
+  ocrProvider: 'tesseract',
+  vectorDb: 'pgvector',
+  demoMode: true,
+};
+
+const appConfig = window.NXT_ACTION_CONFIG ?? defaultConfig;
+
+const progressItems = [
+  {
+    phase: 'Phase 1 — Foundation',
+    status: 'Completed',
+    percent: 100,
+    highlights: ['Schema drafted', 'Upload flow storyboarded', 'OCR queue mocked'],
+  },
+  {
+    phase: 'Phase 2 — Obligation Extraction',
+    status: 'In progress',
+    percent: 70,
+    highlights: ['Classifier prompts ready', 'Citation mapping UX complete', 'Extraction preview live'],
+  },
+  {
+    phase: 'Phase 3 — Action Board + Proof Vault',
+    status: 'In progress',
+    percent: 85,
+    highlights: ['Action board filters working', 'Evidence cards ready', 'Audit trail layout done'],
+  },
+  {
+    phase: 'Phase 4 — Compliance Bundles',
+    status: 'Planned',
+    percent: 40,
+    highlights: ['Bundle library defined', 'Scope selector wired', 'Coverage summary drafted'],
+  },
+  {
+    phase: 'Phase 5 — Polish + Reporting',
+    status: 'Planned',
+    percent: 25,
+    highlights: ['Export surfaces mocked', 'Onboarding checklist drafted', 'Reminder cadence outlined'],
+  },
+];
+
+const envParameters = [
+  { key: 'API_BASE_URL', value: appConfig.apiBaseUrl, description: 'Backend gateway for ingestion.' },
+  { key: 'STORAGE_REGION', value: appConfig.storageRegion, description: 'EU-only storage region.' },
+  { key: 'AI_PROVIDER', value: appConfig.aiProvider, description: 'LLM extraction provider.' },
+  { key: 'OCR_PROVIDER', value: appConfig.ocrProvider, description: 'OCR engine for scans.' },
+  { key: 'VECTOR_DB', value: appConfig.vectorDb, description: 'Semantic search datastore.' },
+  { key: 'DEMO_MODE', value: appConfig.demoMode ? 'true' : 'false', description: 'Mock data toggle.' },
+];
+
 function renderActions(filter) {
   actionsGrid.innerHTML = '';
   const filtered = filter === 'all' ? actions : actions.filter((action) => action.status === filter);
@@ -153,6 +206,48 @@ function updateProfile() {
   profileFocus.textContent = focusSelect.value;
 }
 
+function renderProgress() {
+  const progressList = document.getElementById('progressList');
+  if (!progressList) return;
+
+  progressList.innerHTML = '';
+  progressItems.forEach((item) => {
+    const card = document.createElement('div');
+    card.className = 'progress-card';
+
+    const header = document.createElement('div');
+    header.className = 'progress-header';
+    header.innerHTML = `<h3>${item.phase}</h3><span class="pill info">${item.status}</span>`;
+
+    const bar = document.createElement('div');
+    bar.className = 'progress-bar';
+    bar.innerHTML = `<span style="width: ${item.percent}%"></span>`;
+
+    const meta = document.createElement('div');
+    meta.className = 'progress-meta';
+    meta.textContent = `${item.percent}% complete`;
+
+    const list = document.createElement('ul');
+    list.className = 'progress-highlights';
+    list.innerHTML = item.highlights.map((highlight) => `<li>${highlight}</li>`).join('');
+
+    card.append(header, bar, meta, list);
+    progressList.appendChild(card);
+  });
+}
+
+function renderEnvList() {
+  const envList = document.getElementById('envList');
+  if (!envList) return;
+
+  envList.innerHTML = '';
+  envParameters.forEach((param) => {
+    const item = document.createElement('li');
+    item.innerHTML = `<strong>${param.key}</strong> <span>${param.value}</span><p>${param.description}</p>`;
+    envList.appendChild(item);
+  });
+}
+
 filterButtons.forEach((button) => {
   button.addEventListener('click', () => {
     filterButtons.forEach((item) => item.classList.remove('active'));
@@ -168,3 +263,5 @@ filterButtons.forEach((button) => {
 renderActions('all');
 updateInsights();
 updateProfile();
+renderProgress();
+renderEnvList();
