@@ -101,49 +101,49 @@ const progressItems = [
   },
   {
     phase: 'Phase 2 — Obligation Extraction',
-    status: 'In progress',
-    percent: 70,
+    status: 'Completed',
+    percent: 100,
     highlights: ['Classifier prompts ready', 'Citation mapping UX complete', 'Extraction preview live'],
   },
   {
     phase: 'Phase 3 — Action Board + Proof Vault',
-    status: 'In progress',
-    percent: 85,
+    status: 'Completed',
+    percent: 100,
     highlights: ['Action board filters working', 'Evidence cards ready', 'Audit trail layout done'],
   },
   {
     phase: 'Phase 4 — Compliance Bundles',
-    status: 'In progress',
-    percent: 45,
+    status: 'Completed',
+    percent: 100,
     highlights: ['Bundle library defined', 'Scope selector wired', 'Coverage summary drafted'],
   },
   {
     phase: 'Phase 5 — Polish + Reporting',
-    status: 'Planned',
-    percent: 30,
+    status: 'In progress',
+    percent: 90,
     highlights: ['Export surfaces mocked', 'Onboarding checklist drafted', 'Reminder cadence outlined'],
   },
 ];
 
 const nextSteps = [
   {
-    title: 'Map country + sector bundles (EU AI Act, GDPR, labor)',
-    owner: 'Regulatory Ops',
+    title: 'Finalize onboarding report export templates',
+    owner: 'Design',
     status: 'In progress',
   },
   {
-    title: 'Auto-suggest bundles from scope selector inputs',
+    title: 'Ship reminders + escalation rules',
     owner: 'Product',
     status: 'Next',
   },
   {
-    title: 'Bundle refresh cadence + coverage health metrics',
-    owner: 'Compliance',
+    title: 'Complete reporting QA for leadership dashboards',
+    owner: 'Analytics',
     status: 'Next',
   },
   {
-    title: 'Prototype bundle export for onboarding report',
-    owner: 'Design',
+    title: 'Prep launch checklist + handoff docs',
+    owner: 'Program Ops',
     status: 'Planned',
   },
 ];
