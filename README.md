@@ -11,11 +11,21 @@ This repository contains a lightweight HTML/CSS/JS prototype that visualizes the
 
 ## Run locally
 
-```bash
-python3 -m http.server 8000
-```
+This is a static prototype, so any simple web server will work.
 
-Open `http://localhost:8000` in your browser.
+1. Start a local server:
+   ```bash
+   python3 -m http.server 8000
+   ```
+
+   Or with Node:
+   ```bash
+   npx serve .
+   ```
+
+2. Open `http://localhost:8000` (or the URL shown in your terminal).
+
+No dependency install is required. Edit `config.js` to adjust the environment parameters shown in the MVP Progress section.
 
 ## Environment parameters
 
