@@ -12,6 +12,7 @@
         <div class="logo">Nxt Action</div>
         <div class="nav-links">
           <a href="#scope">Scope</a>
+          <a href="#progress">Progress</a>
           <a href="#upload">Ingest</a>
           <a href="#actions">Action Board</a>
           <a href="#proof">Proof Vault</a>
@@ -243,6 +244,28 @@
             <li><strong>Citations</strong> → links back to source sections</li>
           </ul>
           <button class="secondary">View sample report</button>
+        </div>
+      </section>
+
+      <section class="section" id="progress">
+        <div>
+          <h2>MVP Progress Snapshot</h2>
+          <p class="section-subtitle">
+            Track delivery against the PRD roadmap and see what is ready to demo locally.
+          </p>
+          <div class="progress-list" id="progressList"></div>
+        </div>
+        <div class="env-card">
+          <h3>Environment Parameters</h3>
+          <p class="section-subtitle">
+            Configure local or hosted integrations in <code>config.js</code> (or mirror these in
+            <code>.env</code> for a future backend).
+          </p>
+          <ul class="env-list" id="envList"></ul>
+          <div class="env-actions">
+            <button class="primary">Copy env template</button>
+            <button class="ghost">View setup guide</button>
+          </div>
         </div>
       </section>
 
@@ -509,6 +532,7 @@
       </div>
     </footer>
 
+    <script src="config.js"></script>
     <script src="app.js"></script>
   </body>
 </html>
